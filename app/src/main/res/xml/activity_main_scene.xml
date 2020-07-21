@@ -5,11 +5,7 @@
     android:layout_height="match_parent">
 
     <ConstraintSet android:id="@+id/start">
-        <Constraint>
-            <CustomAttribute
-                app:attributeName="textSize"
-                app:customFloatValue="60" />
-        </Constraint>
+        <Constraint />
         <Constraint
             android:id="@+id/button2"
             android:layout_width="wrap_content"

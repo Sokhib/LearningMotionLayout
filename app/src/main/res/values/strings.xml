@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">LearningMotionLayout</string>
+    <string name="favorite">favorite</string>
 </resources>
