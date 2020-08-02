@@ -20,24 +20,24 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         motionLayout = findViewById<MotionLayout>(R.id.motionlayout)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        textview_true.setOnClickListener(null)
-        textview_false.setOnClickListener(null)
-        textview_pas.setOnClickListener(null)
-        textview_startGame.setOnClickListener { startGame ->
+        imageview_true.setOnClickListener(null)
+        imageview_false.setOnClickListener(null)
+        imageview_pass.setOnClickListener(null)
+        imageview_startGame.setOnClickListener { startGame ->
             viewModel.nextWord()
-            startAnimation(textview_pas)
+            startAnimation(imageview_pass)
             startGame.setOnClickListener(null)
-            textview_true.setOnClickListener {
+            imageview_true.setOnClickListener {
                 Log.d(TAG, "TRUE: Working!!!")
                 startAnimation(it)
                 viewModel.nextWord()
             }
-            textview_false.setOnClickListener {
+            imageview_false.setOnClickListener {
                 Log.d(TAG, "FALSE: Working!!!")
                 startAnimation(it)
                 viewModel.nextWord()
             }
-            textview_pas.setOnClickListener {
+            imageview_pass.setOnClickListener {
                 Log.d(TAG, "PASS: Working!!!")
                 startAnimation(it)
                 viewModel.nextWord()
@@ -55,11 +55,11 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "startAnimation: INSIDE")
         with(motionLayout) {
             when (view) {
-                textview_false -> {
+                imageview_false -> {
                     setTransition(R.id.startLeft, R.id.endLeft)
                     transitionToEnd()
                 }
-                textview_true -> {
+                imageview_true -> {
                     setTransition(R.id.start, R.id.end)
                     transitionToEnd()
                 }
