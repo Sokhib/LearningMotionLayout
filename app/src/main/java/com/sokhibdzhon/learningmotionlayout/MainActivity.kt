@@ -3,6 +3,7 @@ package com.sokhibdzhon.learningmotionlayout
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.lifecycle.Observer
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         imageview_false.setOnClickListener(null)
         imageview_pass.setOnClickListener(null)
         imageview_startGame.setOnClickListener { startGame ->
+            (startGame as ImageView).setImageDrawable(null)
             viewModel.nextWord()
             startAnimation(imageview_pass)
             startGame.setOnClickListener(null)
@@ -69,9 +71,6 @@ class MainActivity : AppCompatActivity() {
                 }
 
             }
-
-
         }
-
     }
 }

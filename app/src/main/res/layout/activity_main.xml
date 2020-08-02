@@ -23,19 +23,22 @@
 
     </View>
 
-    <View
-        android:id="@+id/second"
+    <ImageView
+        android:id="@+id/imageview_startGame"
         android:layout_width="320dp"
         android:layout_height="380dp"
         android:layout_gravity="center"
         android:background="@drawable/rounded_background_second"
+        android:contentDescription="@string/play"
+        android:padding="100dp"
+        android:src="@drawable/ic_video_player"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.48">
 
-    </View>
+    </ImageView>
 
     <TextView
         android:id="@+id/sliderview"
@@ -43,6 +46,7 @@
         android:layout_height="350dp"
         android:layout_gravity="center"
         android:background="@drawable/rounded_background_third"
+        android:fontFamily="@font/museosansrounded500"
         android:gravity="center"
         android:textColor="@color/white"
         android:textSize="46sp"
@@ -111,16 +115,5 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1" />
-
-    <ImageView
-        android:id="@+id/imageview_startGame"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:layout_margin="24dp"
-        android:contentDescription="@string/play"
-        android:padding="4dp"
-        android:src="@drawable/ic_video_player"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

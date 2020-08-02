@@ -23,7 +23,23 @@ class MainViewModel : ViewModel() {
 
     init {
         _words.value =
-            mutableListOf("1", "2", "3", "4", "5", "1", "2", "3", "4", "5", "1", "2", "3", "4", "5")
+            mutableListOf(
+                "Windows",
+                "Microsoft",
+                "Operating System",
+                "WIFI",
+                "Agile",
+                "Continuous Integration",
+                "Developer",
+                "Android",
+                "Test",
+                "AR",
+                "MacBook",
+                "Apple",
+                "Pair Programming",
+                "Debugging",
+                "Coroutine"
+            )
     }
 
     fun nextWord() {
