@@ -136,6 +136,10 @@
                 android:scaleY=".9"
                 motion:framePosition="80"
                 motion:motionTarget="@id/close" />
+            <KeyAttribute
+                android:rotation="-45"
+                motion:framePosition="80"
+                motion:motionTarget="@id/sliderview" />
 
         </KeyFrameSet>
     </Transition>
@@ -157,6 +161,10 @@
                 android:scaleY=".9"
                 motion:framePosition="80"
                 motion:motionTarget="@id/tick" />
+            <KeyAttribute
+                android:rotation="45"
+                motion:framePosition="80"
+                motion:motionTarget="@id/sliderview" />
 
         </KeyFrameSet>
     </Transition>
