@@ -1,5 +1,5 @@
-# Tabu (Wordguru)
-Wordguru game UI based on MotionLayout. 
+# Tabu Game
+Tabu game UI based on MotionLayout. 
 
 <h1>Screenshots</h1>
 <p>
