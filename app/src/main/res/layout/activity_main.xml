@@ -31,7 +31,6 @@
         android:background="@drawable/rounded_background_second"
         android:contentDescription="@string/play"
         android:padding="100dp"
-        android:src="@drawable/ic_video_player"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
