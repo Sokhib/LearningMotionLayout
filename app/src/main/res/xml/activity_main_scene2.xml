@@ -122,7 +122,7 @@
     <Transition
         motion:constraintSetEnd="@+id/offScreenInCorrect"
         motion:constraintSetStart="@+id/rest"
-        motion:duration="500">
+        motion:duration="350">
 
         <OnSwipe
             motion:dragDirection="dragLeft"
@@ -143,7 +143,7 @@
     <Transition
         motion:constraintSetEnd="@+id/offScreenCorrect"
         motion:constraintSetStart="@+id/rest"
-        motion:duration="500">
+        motion:duration="350">
 
         <OnSwipe
             motion:dragDirection="dragRight"
@@ -160,42 +160,14 @@
 
         </KeyFrameSet>
     </Transition>
-    <Transition
-        motion:autoTransition="animateToEnd"
-        motion:constraintSetEnd="@+id/offScreenCorrect"
-        motion:constraintSetStart="@+id/correct"
-        motion:duration="350" />
-    <Transition
-        motion:autoTransition="animateToEnd"
-        motion:constraintSetEnd="@+id/offScreenInCorrect"
-        motion:constraintSetStart="@+id/incorrect"
-        motion:duration="350" />
     <!--    Click pass -->
     <Transition
         motion:constraintSetEnd="@id/endPass"
-        motion:constraintSetStart="@id/startPass"
-        motion:duration="500" />
+        motion:constraintSetStart="@id/rest"
+        motion:duration="350" />
+
 
     <ConstraintSet android:id="@+id/endPass">
-        <Constraint
-            android:id="@+id/close"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:visibility="invisible"
-            motion:layout_constraintBottom_toBottomOf="parent"
-            motion:layout_constraintTop_toTopOf="parent"
-            motion:layout_constraintVertical_bias="0.749" />
-        <Constraint
-            android:id="@+id/tick"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:visibility="invisible"
-            motion:layout_constraintBottom_toBottomOf="parent"
-            motion:layout_constraintTop_toTopOf="parent"
-            motion:layout_constraintVertical_bias="0.749" />
-    </ConstraintSet>
-
-    <ConstraintSet android:id="@+id/startPass">
         <Constraint
             android:id="@+id/sliderview"
             android:layout_width="200dp"
@@ -211,7 +183,8 @@
             android:id="@+id/close"
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:visibility="invisible"
+            android:scaleX="0"
+            android:scaleY="0"
             motion:layout_constraintBottom_toBottomOf="parent"
             motion:layout_constraintTop_toTopOf="parent"
             motion:layout_constraintVertical_bias="0.749" />
@@ -219,160 +192,12 @@
             android:id="@+id/tick"
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:visibility="invisible"
+            android:scaleX="0"
+            android:scaleY="0"
             motion:layout_constraintBottom_toBottomOf="parent"
             motion:layout_constraintTop_toTopOf="parent"
             motion:layout_constraintVertical_bias="0.749" />
 
     </ConstraintSet>
-    <!--    &lt;!&ndash;    Click right&ndash;&gt;-->
-    <!--    <Transition-->
-    <!--        motion:constraintSetEnd="@+id/end"-->
-    <!--        motion:constraintSetStart="@id/start"-->
-    <!--        motion:duration="500">-->
-    <!--        <KeyFrameSet>-->
-
-    <!--            <KeyAttribute-->
-    <!--                android:alpha="1"-->
-    <!--                motion:framePosition="80"-->
-    <!--                motion:motionTarget="@id/tick" />-->
-
-    <!--            <KeyAttribute-->
-    <!--                android:rotation="180"-->
-    <!--                motion:framePosition="80"-->
-    <!--                motion:motionTarget="@id/sliderview" />-->
-    <!--        </KeyFrameSet>-->
-    <!--    </Transition>-->
-
-    <!--    <ConstraintSet android:id="@+id/end">-->
-    <!--        <Constraint-->
-    <!--            android:id="@+id/close"-->
-    <!--            android:layout_width="200dp"-->
-    <!--            android:layout_height="200dp"-->
-    <!--            android:visibility="invisible"-->
-    <!--            motion:layout_constraintBottom_toBottomOf="parent"-->
-    <!--            motion:layout_constraintTop_toTopOf="parent"-->
-    <!--            motion:layout_constraintVertical_bias="0.749" />-->
-    <!--        <Constraint-->
-    <!--            android:id="@+id/tick"-->
-    <!--            android:layout_width="200dp"-->
-    <!--            android:layout_height="200dp"-->
-    <!--            android:alpha="0"-->
-
-    <!--            motion:layout_constraintBottom_toBottomOf="parent"-->
-    <!--            motion:layout_constraintEnd_toEndOf="parent"-->
-    <!--            motion:layout_constraintTop_toTopOf="parent"-->
-    <!--            motion:layout_constraintVertical_bias="0.749" />-->
-    <!--    </ConstraintSet>-->
-
-    <!--    <ConstraintSet android:id="@+id/start">-->
-    <!--        <Constraint-->
-    <!--            android:id="@+id/close"-->
-    <!--            android:layout_width="200dp"-->
-    <!--            android:layout_height="200dp"-->
-    <!--            android:visibility="invisible"-->
-    <!--            motion:layout_constraintBottom_toBottomOf="parent"-->
-    <!--            motion:layout_constraintTop_toTopOf="parent"-->
-    <!--            motion:layout_constraintVertical_bias="0.749" />-->
-    <!--        <Constraint-->
-    <!--            android:id="@+id/tick"-->
-    <!--            android:layout_width="200dp"-->
-    <!--            android:layout_height="200dp"-->
-    <!--            android:alpha="0"-->
-    <!--            android:scaleX="0"-->
-    <!--            android:scaleY="0"-->
-    <!--            motion:layout_constraintBottom_toBottomOf="parent"-->
-    <!--            motion:layout_constraintEnd_toEndOf="parent"-->
-    <!--            motion:layout_constraintTop_toTopOf="parent"-->
-    <!--            motion:layout_constraintVertical_bias="0.749" />-->
-    <!--        <Constraint-->
-    <!--            android:id="@+id/sliderview"-->
-    <!--            android:layout_width="200dp"-->
-    <!--            android:layout_height="200dp"-->
-    <!--            android:alpha="0"-->
-    <!--            android:scaleX="0"-->
-    <!--            android:scaleY="0"-->
-    <!--            motion:layout_constraintBottom_toBottomOf="parent"-->
-    <!--            motion:layout_constraintEnd_toEndOf="parent"-->
-    <!--            motion:layout_constraintVertical_bias="0.749" />-->
-
-    <!--    </ConstraintSet>-->
-
-    <!--    &lt;!&ndash;    Click Left&ndash;&gt;-->
-    <!--    <Transition-->
-    <!--        motion:constraintSetEnd="@id/endLeft"-->
-    <!--        motion:constraintSetStart="@id/startLeft"-->
-    <!--        motion:duration="500">-->
-    <!--        <KeyFrameSet>-->
-
-    <!--            <KeyAttribute-->
-    <!--                android:alpha="1"-->
-    <!--                motion:framePosition="80"-->
-    <!--                motion:motionTarget="@id/close" />-->
-
-    <!--            <KeyAttribute-->
-    <!--                android:rotation="-180"-->
-    <!--                motion:framePosition="80"-->
-    <!--                motion:motionTarget="@id/sliderview" />-->
-
-    <!--        </KeyFrameSet>-->
-    <!--    </Transition>-->
-
-    <!--    <ConstraintSet android:id="@+id/endLeft">-->
-    <!--        <Constraint-->
-    <!--            android:id="@+id/close"-->
-    <!--            android:layout_width="200dp"-->
-    <!--            android:layout_height="200dp"-->
-    <!--            android:alpha="0"-->
-
-    <!--            motion:layout_constraintBottom_toBottomOf="parent"-->
-    <!--            motion:layout_constraintTop_toTopOf="parent"-->
-    <!--            motion:layout_constraintVertical_bias="0.749" />-->
-    <!--        <Constraint-->
-    <!--            android:id="@+id/tick"-->
-    <!--            android:layout_width="200dp"-->
-    <!--            android:layout_height="200dp"-->
-    <!--            android:visibility="invisible"-->
-    <!--            motion:layout_constraintBottom_toBottomOf="parent"-->
-    <!--            motion:layout_constraintEnd_toEndOf="parent"-->
-    <!--            motion:layout_constraintTop_toTopOf="parent"-->
-    <!--            motion:layout_constraintVertical_bias="0.749" />-->
-
-
-    <!--    </ConstraintSet>-->
-
-    <!--    <ConstraintSet android:id="@+id/startLeft">-->
-
-    <!--        <Constraint-->
-    <!--            android:id="@+id/close"-->
-    <!--            android:layout_width="200dp"-->
-    <!--            android:layout_height="200dp"-->
-    <!--            android:alpha="0"-->
-    <!--            android:scaleX="0"-->
-    <!--            android:scaleY="0"-->
-    <!--            motion:layout_constraintBottom_toBottomOf="parent"-->
-    <!--            motion:layout_constraintTop_toTopOf="parent"-->
-    <!--            motion:layout_constraintVertical_bias="0.749" />-->
-    <!--        <Constraint-->
-    <!--            android:id="@+id/tick"-->
-    <!--            android:layout_width="200dp"-->
-    <!--            android:layout_height="200dp"-->
-    <!--            android:visibility="invisible"-->
-    <!--            motion:layout_constraintBottom_toBottomOf="parent"-->
-    <!--            motion:layout_constraintEnd_toEndOf="parent"-->
-    <!--            motion:layout_constraintTop_toTopOf="parent"-->
-    <!--            motion:layout_constraintVertical_bias="0.749" />-->
-    <!--        <Constraint-->
-    <!--            android:id="@+id/sliderview"-->
-    <!--            android:layout_width="200dp"-->
-    <!--            android:layout_height="200dp"-->
-    <!--            android:alpha="0"-->
-    <!--            android:scaleX="0"-->
-    <!--            android:scaleY="0"-->
-    <!--            motion:layout_constraintBottom_toBottomOf="parent"-->
-    <!--            motion:layout_constraintStart_toStartOf="parent"-->
-    <!--            motion:layout_constraintVertical_bias="0.749" />-->
-    <!--    </ConstraintSet>-->
-
 
 </MotionScene>

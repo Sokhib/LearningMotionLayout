@@ -1,7 +1,6 @@
 package com.sokhibdzhon.learningmotionlayout
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.motion.widget.MotionLayout
@@ -10,9 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.activity_main.*
 
-private const val TAG = "TAG"
-
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var viewModel: MainViewModel
     private lateinit var motionLayout: MotionLayout
@@ -27,29 +24,17 @@ class MainActivity : AppCompatActivity() {
                 super.onTransitionCompleted(motionLayout, currentId)
                 when (currentId) {
                     R.id.offScreenCorrect,
+                    R.id.endPass,
                     R.id.offScreenInCorrect -> {
                         motionLayout!!.progress = 0f
-//                        motionLayout.setTransition(R.id.rest, R.id.offScreenCorrect)
                         viewModel.nextWord()
                     }
                 }
             }
         })
-        imageview_true.setOnClickListener {
-            Log.d(TAG, "TRUE: Working!!!")
-            startAnimation(it)
-            viewModel.nextWord()
-        }
-        imageview_false.setOnClickListener {
-            Log.d(TAG, "FALSE: Working!!!")
-            startAnimation(it)
-            viewModel.nextWord()
-        }
-        imageview_pass.setOnClickListener {
-            Log.d(TAG, "PASS: Working!!!")
-            startAnimation(it)
-            viewModel.nextWord()
-        }
+        imageview_false.setOnClickListener(this)
+        imageview_true.setOnClickListener(this)
+        imageview_pass.setOnClickListener(this)
 
         viewModel.current.observe(this, Observer { currentWord ->
             sliderview.text = currentWord
@@ -58,8 +43,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun startAnimation(view: View) {
-        Log.d(TAG, "startAnimation: INSIDE")
-
         with(motionLayout) {
             when (view) {
                 imageview_false -> {
@@ -71,11 +54,15 @@ class MainActivity : AppCompatActivity() {
                     transitionToEnd()
                 }
                 else -> {
-                    setTransition(R.id.startPass, R.id.endPass)
+                    setTransition(R.id.rest, R.id.endPass)
                     transitionToEnd()
                 }
 
             }
         }
+    }
+
+    override fun onClick(view: View?) {
+        startAnimation(view!!)
     }
 }
