@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">LearningMotionLayout</string>
-    <string name="favorite">favorite</string>
+    <string name="close">close</string>
+    <string name="false_text">false</string>
+    <string name="true_text">true</string>
+    <string name="pass">pass</string>
+    <string name="start_game">start game</string>
+    <string name="skip">skip</string>
+    <string name="play">play</string>
 </resources>

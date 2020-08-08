@@ -1,51 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/motionlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
-    app:layoutDescription="@xml/activity_main_scene"
+    app:applyMotionScene="true"
+    app:layoutDescription="@xml/activity_main_scene2"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textview"
+    <View
+        android:id="@+id/first"
         android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:background="@color/colorAccent"
-        android:gravity="center"
-        android:text="Hello"
-        android:textSize="46sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.15" />
-
-    <ImageView
-        android:id="@+id/favIcon"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:contentDescription="@string/favorite"
-        android:src="@drawable/ic_baseline_favorite_24"
-        android:tint="@color/white"
+        android:layout_height="400dp"
+        android:layout_gravity="center"
+        android:background="@drawable/rounded_background_first"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="88dp"
-        android:text="Button"
+    </View>
+
+    <ImageView
+        android:id="@+id/imageview_startGame"
+        android:layout_width="320dp"
+        android:layout_height="380dp"
+        android:layout_gravity="center"
+        android:background="@drawable/rounded_background_second"
+        android:contentDescription="@string/play"
+        android:padding="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.526"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.48">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </ImageView>
+
+    <TextView
+        android:id="@+id/sliderview"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:layout_gravity="center"
+        android:background="@drawable/rounded_background_third"
+        android:fontFamily="@font/museosansrounded500"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="46sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.48"
+        tools:text="hello">
+
+    </TextView>
+
+    <ImageView
+        android:id="@+id/close"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:contentDescription="@string/close"
+        android:src="@drawable/ic_close"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.749" />
+
+    <ImageView
+        android:id="@+id/tick"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:contentDescription="@string/close"
+        android:src="@drawable/ic_tick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.749" />
+
+    <ImageView
+        android:id="@+id/imageview_false"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_margin="24dp"
+        android:contentDescription="@string/close"
+        android:padding="4dp"
+        android:src="@drawable/ic_close"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageview_true"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_margin="24dp"
+        android:contentDescription="@string/true_text"
+        android:padding="4dp"
+        android:src="@drawable/ic_tick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageview_pass"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_margin="24dp"
+        android:contentDescription="@string/skip"
+        android:padding="4dp"
+        android:src="@drawable/ic_next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1" />
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

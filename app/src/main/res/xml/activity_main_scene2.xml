@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <ConstraintSet android:id="@+id/rest">
+
+        <Constraint
+            android:id="@id/sliderview"
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintVertical_bias="0.48" />
+        <Constraint
+            android:id="@+id/close"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:scaleX="0"
+            android:scaleY="0"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintVertical_bias="0.749" />
+        <Constraint
+            android:id="@+id/tick"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:scaleX="0"
+            android:scaleY="0"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintRight_toRightOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintVertical_bias="0.749" />
+    </ConstraintSet>
+    <ConstraintSet
+        android:id="@+id/incorrect"
+        motion:deriveConstraintsFrom="@+id/rest">
+
+        <Constraint
+            android:id="@id/sliderview"
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintWidth_percent="0.7" />
+    </ConstraintSet>
+
+    <ConstraintSet
+        android:id="@+id/correct"
+        motion:deriveConstraintsFrom="@+id/rest">
+
+        <Constraint
+            android:id="@id/sliderview"
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintWidth_percent="0.7" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/offScreenCorrect">
+
+        <Constraint
+            android:id="@id/sliderview"
+            android:layout_width="0dp"
+            android:layout_height="350dp"
+            motion:layout_constraintStart_toEndOf="parent"
+            motion:layout_constraintWidth_percent="0.7" />
+
+        <Constraint
+            android:id="@+id/close"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:scaleX="0"
+            android:scaleY="0"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintVertical_bias="0.749" />
+        <Constraint
+            android:id="@+id/tick"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:scaleX="0"
+            android:scaleY="0"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintVertical_bias="0.749" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/offScreenInCorrect">
+
+        <Constraint
+            android:id="@id/sliderview"
+            android:layout_width="0dp"
+            android:layout_height="350dp"
+            motion:layout_constraintEnd_toStartOf="parent"
+            motion:layout_constraintWidth_percent="0.7" />
+
+        <Constraint
+            android:id="@+id/close"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:scaleX="0"
+            android:scaleY="0"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintVertical_bias="0.749" />
+        <Constraint
+            android:id="@+id/tick"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:scaleX="0"
+            android:scaleY="0"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintVertical_bias="0.749" />
+    </ConstraintSet>
+    <Transition
+        motion:constraintSetEnd="@+id/offScreenInCorrect"
+        motion:constraintSetStart="@+id/rest"
+        motion:duration="350">
+
+        <OnSwipe
+            motion:dragDirection="dragLeft"
+            motion:onTouchUp="autoComplete"
+            motion:touchAnchorId="@id/sliderview"
+            motion:touchAnchorSide="left"
+            motion:touchRegionId="@id/sliderview" />
+        <KeyFrameSet>
+            <KeyAttribute
+                android:scaleX=".9"
+                android:scaleY=".9"
+                motion:framePosition="80"
+                motion:motionTarget="@id/close" />
+            <KeyAttribute
+                android:rotation="-45"
+                motion:framePosition="80"
+                motion:motionTarget="@id/sliderview" />
+
+        </KeyFrameSet>
+    </Transition>
+
+    <Transition
+        motion:constraintSetEnd="@+id/offScreenCorrect"
+        motion:constraintSetStart="@+id/rest"
+        motion:duration="350">
+
+        <OnSwipe
+            motion:dragDirection="dragRight"
+            motion:onTouchUp="autoComplete"
+            motion:touchAnchorId="@+id/sliderview"
+            motion:touchAnchorSide="right"
+            motion:touchRegionId="@id/sliderview" />
+        <KeyFrameSet>
+            <KeyAttribute
+                android:scaleX=".9"
+                android:scaleY=".9"
+                motion:framePosition="80"
+                motion:motionTarget="@id/tick" />
+            <KeyAttribute
+                android:rotation="45"
+                motion:framePosition="80"
+                motion:motionTarget="@id/sliderview" />
+
+        </KeyFrameSet>
+    </Transition>
+    <!--    Click pass -->
+    <Transition
+        motion:constraintSetEnd="@id/endPass"
+        motion:constraintSetStart="@id/rest"
+        motion:duration="350" />
+
+
+    <ConstraintSet android:id="@+id/endPass">
+        <Constraint
+            android:id="@+id/sliderview"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:alpha="0"
+            android:scaleX="0"
+            android:scaleY="0"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintVertical_bias="1" />
+        <Constraint
+            android:id="@+id/close"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:scaleX="0"
+            android:scaleY="0"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintVertical_bias="0.749" />
+        <Constraint
+            android:id="@+id/tick"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:scaleX="0"
+            android:scaleY="0"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintVertical_bias="0.749" />
+
+    </ConstraintSet>
+
+</MotionScene>
