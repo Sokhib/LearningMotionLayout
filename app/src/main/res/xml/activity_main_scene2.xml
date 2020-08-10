@@ -172,7 +172,16 @@
     <Transition
         motion:constraintSetEnd="@id/endPass"
         motion:constraintSetStart="@id/rest"
-        motion:duration="350" />
+        motion:duration="350">
+
+        <OnSwipe
+            motion:dragDirection="dragDown"
+            motion:dragScale="0.05"
+            motion:onTouchUp="autoComplete"
+            motion:touchAnchorId="@+id/sliderview"
+            motion:touchAnchorSide="top"
+            motion:touchRegionId="@id/sliderview" />
+    </Transition>
 
 
     <ConstraintSet android:id="@+id/endPass">
